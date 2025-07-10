@@ -3,7 +3,6 @@ package ru.test.homework.test.Repository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ru.test.homework.test.modl.Product;
-
 import java.util.List;
 
 public interface ProductRepository extends CrudRepository<Product, Long> {}

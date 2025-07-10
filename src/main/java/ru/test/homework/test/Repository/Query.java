@@ -49,7 +49,6 @@ public class Query {
         List<CityDTO> findCityDTOsWithPopulationGreaterThan();
     }
 
-
     @Data
     @AllArgsConstructor
     public class OrderDTO {

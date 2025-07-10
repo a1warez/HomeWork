@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 public interface ArticleRepository extends PagingAndSortingRepository<Article, Long> {}
 public interface ClientRepository extends PagingAndSortingRepository<Client, Long> {}
 
-
 @Service
 public class MyService {
 
