@@ -7,11 +7,9 @@ import java.time.LocalDate;
 @Entity
 @Table(name = "TeachingAssignments")
 public class TeachingAssignment {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private LocalDate startDate;
     private Integer hoursPerWeek;
 

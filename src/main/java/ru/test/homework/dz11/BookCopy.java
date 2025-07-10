@@ -6,11 +6,9 @@ import jakarta.persistence.*;
 @Table(name = "BookCopies")
 
 public class BookCopy {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String isbn;
     private String condition;
 

@@ -7,11 +7,9 @@ import java.time.LocalDate;
 @Entity
 @Table(name = "Licenses")
 public class License {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String licenseNumber;
     private LocalDate issuedAt;
 

@@ -7,11 +7,9 @@ import java.util.List;
 @Entity
 @Table(name = "Doctors")
 public class Doctor {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String name;
     private String specialization;
 

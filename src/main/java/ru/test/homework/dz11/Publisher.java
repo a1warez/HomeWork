@@ -7,11 +7,9 @@ import java.util.List;
 @Entity
 @Table(name = "Publishers")
 public class Publisher {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String name;
     private String country;
 

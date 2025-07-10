@@ -5,11 +5,9 @@ import jakarta.persistence.*;
 @Entity
 @Table(name = "Magazines")
 public class Magazine {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String title;
     private Integer issueNumber;
 
