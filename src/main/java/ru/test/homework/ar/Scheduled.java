@@ -13,7 +13,6 @@ import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 class sch {
-
     @Scheduled(fixedRate = 5000)
     public void task1() {
         System.out.println("Привет!");
