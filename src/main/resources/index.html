@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Ваше CV</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        .container { width: 80%; margin: 0 auto; }
+        h1 { color: #333; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1 th:text="${person.name}"></h1>
+    <p th:text="${person.position}"></p>
+    <p>Email: <span th:text="${person.email}"></span></p>
+    <p>Телефон: <span th:text="${person.phoneNumber}"></span></p>
+    <p>Обо мне: <span th:text="${person.aboutMe}"></span></p>
+</div>
+</body>
+</html>
