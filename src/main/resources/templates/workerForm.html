@@ -6,7 +6,7 @@
 <body>
 <h1>Форма работника</h1>
 <form th:action="@{/workers/save}" th:object="${worker}" method="post">
-    <input type="hidden" th:field="*{id}" /> <!-- Скрытое поле для ID при редактировании -->
+    <input type="hidden" th:field="*{id}" />
     <div>
         <label>Возраст:</label>
         <input type="text" th:field="*{age}" />

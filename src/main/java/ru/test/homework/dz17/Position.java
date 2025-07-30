@@ -11,7 +11,7 @@ public class Position {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String type; // CONTRACTOR, FULL_TIME, PART_TIME, etc.
+    private String type;
 
     public Long getId() {
         return id;

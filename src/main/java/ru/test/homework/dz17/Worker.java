@@ -12,10 +12,10 @@ public class Worker {
 
     private Integer age;
     private String name;
-    private String eurname; // (Should be "surname" - corrected spelling)
+    private String eurname;
 
-    @ManyToOne // Связь с таблицей Positions (многие к одному)
-    @JoinColumn(name = "position_id") // Внешний ключ в таблице workers, ссылающийся на id в positions
+    @ManyToOne
+    @JoinColumn(name = "position_id")
     private Position position;
 
     private String email;

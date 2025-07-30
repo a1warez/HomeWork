@@ -1,6 +1,7 @@
 package ru.test.homework.dz17;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -14,12 +15,13 @@ public class WorkerService {
     @Autowired
     private PositionRepository positionRepository;
 
-    public List<Worker> getAllWorkers() {
-        return workerRepository.findAll();
+
+    public List<Worker> getAllWorkers(Sort sort) {
+        return workerRepository.findAll(sort);
     }
 
     public Worker getWorkerById(Long id) {
-        return workerRepository.findById(id).orElse(null); // Обработка случая, когда работник не найден
+        return workerRepository.findById(id).orElse(null);
     }
 
     public Worker createWorker(Worker worker) {
@@ -27,12 +29,12 @@ public class WorkerService {
     }
 
     public Worker updateWorker(Long id, Worker worker) {
-        Worker existingWorker = workerRepository.findById(id).orElse(null);
-        if (existingWorker != null) {
-            worker.setId(id); // Устанавливаем ID, чтобы обновить существующую запись
+
+        if (workerRepository.existsById(id)) {
+            worker.setId(id);
             return workerRepository.save(worker);
         }
-        return null; // Обработка случая, когда работник не найден
+        return null;
     }
 
     public void deleteWorker(Long id) {
