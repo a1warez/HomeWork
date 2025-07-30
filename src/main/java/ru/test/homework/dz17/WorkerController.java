@@ -15,15 +15,17 @@ public class WorkerController {
     @Autowired
     private WorkerService workerService;
 
-
     @GetMapping
     public String listWorkers(Model model,
                               @RequestParam(required = false) String sortBy,
-                              @RequestParam(required = false) String sortDirection) {
+                              @RequestParam(required = false) String sortDirection,
+                              @RequestParam(required = false) String name, // Параметры фильтрации
+                              @RequestParam(required = false) String eurname,
+                              @RequestParam(required = false) String positionType) {
 
         Sort sort = Sort.unsorted();
 
-
+        // Обработка сортировки
         if (sortBy != null && !sortBy.isEmpty()) {
             Sort.Direction direction = Sort.Direction.ASC;
             if ("desc".equalsIgnoreCase(sortDirection)) {
@@ -32,14 +34,20 @@ public class WorkerController {
             sort = Sort.by(direction, sortBy);
         }
 
-        List<Worker> workers = workerService.getAllWorkers(sort);
+        // Создаем FilterDTO и заполняем его значениями из параметров запроса
+        FilterDTO filterDTO = new FilterDTO();
+        filterDTO.setName(name);
+        filterDTO.setEurname(eurname);
+        filterDTO.setPositionType(positionType);
+
+        List<Worker> workers = workerService.getAllWorkers(sort, filterDTO);  // Передаем FilterDTO в сервис
         model.addAttribute("workers", workers);
-
-
         model.addAttribute("sortBy", sortBy);
         model.addAttribute("sortDirection", sortDirection);
-
-        return "workerList";
+        model.addAttribute("name", name); // Передаем текущие параметры фильтрации в модель
+        model.addAttribute("eurname", eurname);
+        model.addAttribute("positionType", positionType);
+        return "workerList"; // Имя Thymeleaf шаблона
     }
 
     @GetMapping("/new")

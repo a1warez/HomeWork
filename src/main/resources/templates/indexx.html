@@ -39,7 +39,16 @@
 <body>
 <h1>Список работников</h1>
 <a th:href="@{/workers/new}">Добавить работника</a>
-<table>
+
+<form th:action="@{/workers}" method="get">
+    <label for="name">Имя:</label>
+    <input type="text" id="name" name="name" th:value="${name}" />
+    <label for="eurname">Фамилия:</label>
+    <input type="text" id="eurname" name="eurname" th:value="${eurname}" />
+    <label for="positionType">Тип позиции:</label>
+    <input type="text" id="positionType" name="positionType" th:value="${positionType}" />
+    <button type="submit">Фильтровать</button>
+</form>
     <thead>
     <tr>
         <th>
