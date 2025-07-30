@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Форма работника</title>
+</head>
+<body>
+<h1>Форма работника</h1>
+<form th:action="@{/workers/save}" th:object="${worker}" method="post">
+    <input type="hidden" th:field="*{id}" />
+    <div>
+        <label>Возраст:</label>
+        <input type="text" th:field="*{age}" />
+    </div>
+    <div>
+        <label>Имя:</label>
+        <input type="text" th:field="*{name}" />
+    </div>
+    <div>
+        <label>Фамилия:</label>
+        <input type="text" th:field="*{eurname}" />
+    </div>
+    <div>
+        <label>Email:</label>
+        <input type="text" th:field="*{email}" />
+    </div>
+    <div>
+        <label>Тип:</label>
+        <select th:field="*{position.id}">
+            <option th:each="position : ${positions}" th:value="${position.id}" th:text="${position.type}"></option>
+        </select>
+    </div>
+    <button type="submit">Сохранить</button>
+</form>
+<a th:href="@{/workers}">Назад к списку</a>
+</body>
+</html>
